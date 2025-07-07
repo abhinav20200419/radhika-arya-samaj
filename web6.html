@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radhika Arya Samaj</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .hero {
+        background: url('https://images.unsplash.com/photo-1597157639073-69284dc0fdaf?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+      height: 100vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      text-shadow: 2px 2px 5px #000;
+    }
+    .hero h1 {
+      font-size: 3rem;
+    }
+    .section-padding {
+      padding: 60px 0;
+    }
+    .testimonial {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Radhika Arya Samaj Mandir</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navLinks">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#stories">Stories</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero d-flex align-items-center text-white text-center">
+  <div class="container position-relative z-2">
+    <h1 class="display-5 fw-bold">
+      <span id="typed-span"></span><br>
+      <span style="display:none;">at Radhika Arya Samaj Mandir</span>
+    </h1>
+    <p class="lead mt-3">Trusted by thousands of families worldwide</p>
+    <a href="#about" class="btn btn-primary mt-3">Learn More</a>
+  </div>
+</section>
+
+<style>
+    .hero {
+    min-height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1597157639073-69284dc0fdaf?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* replace with actual image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 60px 15px;
+    }
+
+    .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* dark overlay for text visibility */
+    z-index: 1;
+    }
+
+    .hero .container {
+    z-index: 2;
+    position: relative;
+    }
+
+    @media (max-width: 576px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    }
+</style>
+
+<style>
+  #typed-span::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
+
+<script>
+  const phrases = [
+  
+    { text: "Enjoy your wedding with Radhika arya samaj mandir (trust)", color: "#39FF14" },
+    { text: "Give your partner a great feeling of being a special one for you", color: "#FFFF33" },
+    { text: "We make your day special with our best efforts", color: "#BFFF00" },
+
+    //{ text: "Arya Vedic Vivaah", color: "#39FF14" },
+    //{ text: "Sanskaar Se Bandhan", color: "#FFFF33" },
+    //{ text: "Shraddha aur Samarpan", color: "#BFFF00" },
+    //{ text: "Pavitra Milan", color: "#B6B6B4" },
+    //{ text: "Rishton Ki Shuddhta", color: "#FFEE88" }
+  ];
+
+
+  let currentPhrase = 0;
+  let currentChar = 0;
+  let isDeleting = false;
+
+  const textSpan = document.getElementById("typed-span");
+
+  function type() {
+    const current = phrases[currentPhrase];
+    const currentText = current.text;
+    const displayedText = currentText.substring(0, currentChar);
+
+    textSpan.textContent = displayedText;
+    textSpan.style.color = current.color;
+
+    if (!isDeleting && currentChar < currentText.length) {
+      currentChar++;
+      setTimeout(type, 100);
+    } else if (isDeleting && currentChar > 0) {
+      currentChar--;
+      setTimeout(type, 50);
+    } else {
+      if (!isDeleting) {
+        isDeleting = true;
+        setTimeout(type, 1000);
+      } else {
+        isDeleting = false;
+        currentPhrase = (currentPhrase + 1) % phrases.length;
+        setTimeout(type, 300);
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", type);
+</script>
+
+
+<!-- About Section -->
+<section id="about" class="section-padding bg-light">
+  <div class="container text-center">
+    <h2>About Us</h2>
+    <p class="lead">Radhika Arya Samaj Mandir is India's most loved matrimonial platform helping millions find their soulmate with love and tradition.</p>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <h5>Verified Profiles</h5>
+        <p>All users are screened manually to ensure genuine profiles.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Complete Privacy</h5>
+        <p>Your personal data stays safe and confidential with us.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Supportive Team</h5>
+        <p>Our support team is always available to guide you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+    .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    }
+
+    .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    }
+
+    .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+    }
+</style>
+
+
+<!-- Include Bootstrap 5 CSS & JS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<section class="section-padding">
+  <div class="container text-center">
+    <h2 class="mb-4">Happy Stories</h2>
+    <p class="lead">Real stories of real people who found love here.</p>
+
+    <div id="storyCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner" id="carousel-content">
+        <!-- Slides will be injected here by JS -->
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#storyCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#storyCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const testimonials = [
+    {
+        img: "marriage_testimonials/1.jpg",
+        text: "Simple Arya Samaj vidhi mein shaadi ki, sab kuch shuddh aur pavitra tha.",
+        name: "Ravi & Anjali"
+    },
+    {
+        img: "marriage_testimonials/2.jpg",
+        text: "Yahan sab kuch bina dikhave ke, sirf vedic maryada ke anusaar hua.",
+        name: "Amit & Poonam"
+    },
+    {
+        img: "marriage_testimonials/3.jpg",
+        text: "Havan kund ke samne liye gaye sankalp kabhi nahi bhoolenge.",
+        name: "Sandeep & Meenakshi"
+    },
+    {
+        img: "marriage_testimonials/4.jpg",
+        text: "Radhika Arya Samaj Mandir ne humari jindagi jod di.",
+        name: "Gaurav & Shalini"
+    },
+    {
+        img: "marriage_testimonials/5.jpg",
+        text: "Shaadi ke sabhi sanskaar Arya Samaj paddhati se pura kiya gaya.",
+        name: "Varun & Kavita"
+    },
+    {
+        img: "marriage_testimonials/6.jpg",
+        text: "Shraddha aur vishwas ke saath yeh pavitra bandhan joda gaya.",
+        name: "Kunal & Neha"
+    },
+    {
+        img: "marriage_testimonials/7.jpg",
+        text: "Sab kuch itna simple aur satvik tha, mann ko shaanti mili.",
+        name: "Rajeev & Rekha"
+    },
+    {
+        img: "marriage_testimonials/8.jpg",
+        text: "Ved mantron ki goonj ke saath, nayi zindagi ki shuruaat ki.",
+        name: "Vivek & Rachna"
+    },
+    {
+        img: "marriage_testimonials/9.jpg",
+        text: "Rituals were pure, authentic, and filled with sanskaar.",
+        name: "Deepak & Anu"
+    },
+    {
+        img: "marriage_testimonials/10.jpg",
+        text: "Humne shuddh Vedic vidhi mein vivaah kiya – bina dhoom-dhaam ke.",
+        name: "Rohit & Swati"
+    },
+    {
+        img: "marriage_testimonials/11.jpg",
+        text: "Sab kuch aramdayak, maryada mein aur samvedansheel tha.",
+        name: "Nitin & Sheetal"
+    },
+    {
+        img: "marriage_testimonials/12.jpg",
+        text: "Gurukul ki tarah vataavaran aur vedic paddhati ka anubhav kiya.",
+        name: "Ashish & Kusum"
+    },
+    {
+        img: "marriage_testimonials/13.jpg",
+        text: "Kisi mandir mein itna shant aur pavitra anubhav pehli baar hua.",
+        name: "Harsh & Payal"
+    },
+    {
+        img: "marriage_testimonials/14.jpg",
+        text: "Hum dono ne Arya Samaj ki reeti-rivaazon ke tahat vivaah kiya.",
+        name: "Yogesh & Pooja"
+    },
+    {
+        img: "marriage_testimonials/15.jpg",
+        text: "Gyaan, sanskaar aur shraddha – sab ek saath mila yahaan.",
+        name: "Satish & Bhavna"
+    },
+    {
+        img: "marriage_testimonials/16.jpg",
+        text: "Mere mata-pita ne bhi yahin vivaah kiya tha – parampara jari rahi.",
+        name: "Manoj & Sneha"
+    },
+    {
+        img: "marriage_testimonials/17.jpg",
+        text: "Simple registration aur turant shubh muhurat mein shaadi.",
+        name: "Rakesh & Suman"
+    },
+    {
+        img: "marriage_testimonials/18.jpg",
+        text: "Vedon ke uchcharan ne poore karyakram ko divya bana diya.",
+        name: "Abhishek & Monika"
+    },
+    {
+        img: "marriage_testimonials/19.jpg",
+        text: "No dowry, no show-off – sirf sanskaar aur vishwas.",
+        name: "Jatin & Rashmi"
+    },
+    {
+        img: "marriage_testimonials/20.jpg",
+        text: "Pandit ji ne har mantra ka arth samjhaaya – yeh alag tha.",
+        name: "Akhil & Nidhi"
+    },
+    {
+        img: "marriage_testimonials/21.jpg",
+        text: "Pavitra mandap, havan aur mantron se bharpoor shaadi.",
+        name: "Rahul & Kirti"
+    },
+    {
+        img: "marriage_testimonials/22.jpg",
+        text: "Ekdam suvidha janak aur maryada mein bandha vivaah.",
+        name: "Vipin & Alka"
+    },
+    {
+        img: "marriage_testimonials/23.jpg",
+        text: "Itni shaant aur atmic anubhooti kahin nahi mili.",
+        name: "Pankaj & Naina"
+    },
+    {
+        img: "marriage_testimonials/24.jpg",
+        text: "Arya Samaj ki shuddhta ne humara mann jeet liya.",
+        name: "Naveen & Shruti"
+    },
+    {
+        img: "marriage_testimonials/25.jpg",
+        text: "Sabhi rasmon ko samjha ke pura kiya gaya.",
+        name: "Tarun & Vandana"
+    },
+    {
+        img: "marriage_testimonials/26.jpg",
+        text: "Vedon ke anusar shaadi karna ek anmol anubhav tha.",
+        name: "Ajay & Priya"
+    },
+    {
+        img: "marriage_testimonials/27.jpg",
+        text: "Man ki shuddhi aur sanskaar – yehin mili yahaan.",
+        name: "Ramesh & Anju"
+    },
+    {
+        img: "marriage_testimonials/28.jpg",
+        text: "Simple, legal, aur pavitra – sab kuch ek hi jagah.",
+        name: "Dinesh & Babita"
+    },
+    {
+        img: "marriage_testimonials/29.jpg",
+        text: "Yeh mandir sach mein parivaarik aur atmiy hai.",
+        name: "Mahesh & Komal"
+    },
+    {
+        img: "marriage_testimonials/30.jpg",
+        text: "No stress, sirf sanskaar aur shaanti.",
+        name: "Saurabh & Ritu"
+    },
+    {
+        img: "marriage_testimonials/31.jpg",
+        text: "Samarpan, shraddha aur pyaar ka anubhav yahaan hua.",
+        name: "Narendra & Jyoti"
+    },
+    {
+        img: "marriage_testimonials/32.jpg",
+        text: "Poore vidhi-vachan ke saath vivaah hua.",
+        name: "Sushil & Madhu"
+    },
+    {
+        img: "marriage_testimonials/33.jpg",
+        text: "Aaj bhi woh mantron ki dhwani yaad hai.",
+        name: "Ankit & Rinki"
+    },
+    {
+        img: "marriage_testimonials/34.jpg",
+        text: "Sanskaarik aur samvedansheel anubhav – shukriya.",
+        name: "Raghav & Preeti"
+    }
+  ];
+
+  function getItemsPerSlide() {
+    const width = window.innerWidth;
+    if (width < 576) return 1;
+    else if (width < 992) return 2;
+    else return 4;
+  }
+
+  function generateCarousel() {
+    const itemsPerSlide = getItemsPerSlide();
+    const totalSlides = Math.ceil(testimonials.length / itemsPerSlide);
+
+    const carouselInner = document.getElementById("carousel-content");
+    carouselInner.innerHTML = '';
+
+    for (let i = 0; i < totalSlides; i++) {
+      const carouselItem = document.createElement("div");
+      carouselItem.className = "carousel-item" + (i === 0 ? " active" : "");
+
+      const row = document.createElement("div");
+      row.className = "row justify-content-center gx-3 gy-4 px-3"; // margin for small screens
+
+      for (let j = 0; j < itemsPerSlide; j++) {
+        const index = i * itemsPerSlide + j;
+        if (index >= testimonials.length) break;
+
+        const t = testimonials[index];
+        const col = document.createElement("div");
+        col.className = `col-${12 / itemsPerSlide}`;
+
+        col.innerHTML = `
+          <div class="card h-100 shadow">
+            <img src="${t.img}" class="card-img-top" style="height: 250px; object-fit: cover;" alt="${t.name}">
+            <div class="card-body text-center">
+              <p class="card-text">"${t.text}"</p>
+              <small>- ${t.name}</small>
+            </div>
+          </div>
+        `;
+        row.appendChild(col);
+      }
+
+      carouselItem.appendChild(row);
+      carouselInner.appendChild(carouselItem);
+    }
+  }
+
+  window.addEventListener("load", generateCarousel);
+  window.addEventListener("resize", () => {
+    // Rebuild only if screen size category changed
+    clearTimeout(window.resizeTimeout);
+    window.resizeTimeout = setTimeout(generateCarousel, 200);
+  });
+</script>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4 justify-content-center text-center">
+
+      <!-- Card 1 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card shadow-sm border-0 h-100 p-3">
+          <img src="marriage_testimonials/DIR1.jpg" class="rounded-circle mx-auto mb-3" style="width: 150px; height: 150px; object-fit: cover;" alt="Pandit Ram Sharma">
+          <h5 class="mb-0 fw-semibold">Advocate Renu Sharma</h5>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card shadow-sm border-0 h-100 p-3">
+          <img src="marriage_testimonials/DIR2.jpg" class="rounded-circle mx-auto mb-3" style="width: 150px; height: 150px; object-fit: cover;" alt="Acharya Suman Joshi">
+          <h5 class="mb-0 fw-semibold">Advocate Arun Sharma</h5>
+        </div>
+      </div>
+
+      <!-- Add more cards as needed -->
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact" class="section-padding">
+  <div class="container text-center">
+    <h2>Contact Us</h2>
+    <p class="lead">Have questions? Reach out to us anytime.</p>
+    <p>Email: renusharma5064@gmail.com</p>
+    <p>Phone: +91-70153-07848 | +91-73577-18865</p>
+    <p>Follow us on social media for updates.</p>
+  </div>
+</section>
+
+<section id="location" class="section-padding bg-light">
+  <div class="container text-center">
+    <h2 class="mb-4">📍 Our Location</h2>
+    <p class="mb-4">Come visit us or reach out from anywhere in the world.</p>
+
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="ratio ratio-16x9 rounded shadow">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3500.7884477123416!2d77.21893787550208!3d28.66605237564642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDM5JzU3LjgiTiA3N8KwMTMnMTcuNSJF!5e0!3m2!1sen!2sin!4v1751044909925!5m2!1sen!2sin" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+</section>
+
+<form id="leadForm" action="send-lead.php" method="POST" class="p-4 rounded shadow bg-white text-dark mt-5" style="max-width: 600px; margin: auto;">
+  <h2 class="mb-4 text-center">💌 Get Matched Instantly</h2>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Full Name</label>
+    <input type="text" class="form-control" id="name" name="name" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email Address</label>
+    <input type="email" class="form-control" id="email" name="email" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone Number</label>
+    <input type="tel" class="form-control" id="phone" name="phone" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="message" class="form-label">Tell us what you're looking for</label>
+    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100">Submit</button>
+
+  <div id="form-status" class="mt-3 text-center"></div>
+</form>
+
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-3">
+  &copy; 2025 Radhika Arya Samaj Mandir. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
