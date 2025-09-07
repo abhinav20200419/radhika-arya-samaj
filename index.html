@@ -596,21 +596,21 @@
   document.getElementById("leadForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-      const data = {
-    name: e.target.name.value,
-    email: e.target.email.value,
-    message: e.target.message.value
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbw3OaPhBYk5ttlEynFijyZvDb_FHwOlhl1_GslypgQtOHE-4yyMxMH-QpW9T4pJzFSh/exec", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-    mode: "cors"
-  })
-  .then(res => res.json())
-  .then(res => console.log("Response:", res))
-  .catch(err => console.error("Error:", err));
+     const formData = new FormData();
+    formData.append("name", e.target.name.value);
+    formData.append("email", e.target.email.value);
+    formData.append("message", e.target.message.value);
+  
+    fetch("https://script.google.com/macros/s/AKfycbxtxmM4fZwS_bDqDjQOlF59jWRMaMLLaFG1NYSwKAPtB7w5NWx90kbl5Qj9g963BeWM/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.json())
+    .then(res => {
+      console.log("Response:", res);
+      alert("Submitted! " + JSON.stringify(res));
+    })
+    .catch(err => console.error("Error:", err));
 
 
   });
