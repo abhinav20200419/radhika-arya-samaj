@@ -596,26 +596,21 @@
   document.getElementById("leadForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const data = new FormData();
-    data.append("name", e.target.name.value);
-    data.append("email", e.target.email.value);
-    data.append("message", e.target.message.value);
+      const data = {
+    name: e.target.name.value,
+    email: e.target.email.value,
+    message: e.target.message.value
+  };
 
-    fetch("https://script.google.com/macros/s/AKfycbyT7ZS2rcbu6UloARowH6TMx4Nptxsk5p0E1ja9ZFOWFajJrHADDdeFKofoBabLMaQ/exec", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data),
-        mode: "cors",
-        redirect: "follow"
-      })
-      .then(res => res.json())
-      .then(res => {
-        console.log("Response:", res);
-        alert("Submitted! " + JSON.stringify(res));
-      })
-      .catch(err => console.error("Error:", err));
+  fetch("https://script.google.com/macros/s/AKfycbw3OaPhBYk5ttlEynFijyZvDb_FHwOlhl1_GslypgQtOHE-4yyMxMH-QpW9T4pJzFSh/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+    mode: "cors"
+  })
+  .then(res => res.json())
+  .then(res => console.log("Response:", res))
+  .catch(err => console.error("Error:", err));
 
 
   });
