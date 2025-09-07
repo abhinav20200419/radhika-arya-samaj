@@ -596,17 +596,26 @@
   document.getElementById("leadForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const formData = new FormData();
+    const data = new FormData();
     formData.append("name", e.target.name.value);
     formData.append("email", e.target.email.value);
     formData.append("message", e.target.message.value);
 
-    fetch("https://script.google.com/macros/s/AKfycbwyfrY5BwIfo52B7lca215syxogc5AtkhvA1dwwSJX1n4o3oRN8Tpwv1_gCtfqH1vtt/exec", {
-      method: "POST",
-      body: formData
-    })
-    .then(res => res.text())
-    .then(txt => alert("Submitted! " + txt));
+    fetch("https://script.google.com/macros/s/AKfycbyT7ZS2rcbu6UloARowH6TMx4Nptxsk5p0E1ja9ZFOWFajJrHADDdeFKofoBabLMaQ/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data),
+        mode: "cors",
+        redirect: "follow"
+      })
+      .then(res => res.json())
+      .then(res => {
+        console.log("Response:", res);
+        alert("Submitted! " + JSON.stringify(res));
+      })
+      .catch(err => console.error("Error:", err));
 
 
   });
