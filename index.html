@@ -570,24 +570,44 @@
   //   }).then(res => alert("Submitted!"));
   // });
 
+  // document.getElementById("leadForm").addEventListener("submit", function(e) {
+  //   e.preventDefault();
+  //   const data = {
+  //     name: e.target.name.value,
+  //     email: e.target.email.value,
+  //     message: e.target.message.value
+  //   };
+  //   fetch("https://script.google.com/macros/s/AKfycbxefrHOKA-3fow6__bJk2YSoS7qGL3a57RMgZCjLmM0dkaXLH9r28WdHl887CP9ZiQ/exec", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify(data),
+  //   mode: "cors"
+  // })
+  // .then(res => res.json())
+  // .then(res => alert("Submitted!"))
+  // .catch(err => console.error("Error:", err));
+
+  // });
+
+  
+
   document.getElementById("leadForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    const data = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value
-    };
+
+    const formData = new FormData();
+    formData.append("name", e.target.name.value);
+    formData.append("email", e.target.email.value);
+    formData.append("message", e.target.message.value);
+
     fetch("https://script.google.com/macros/s/AKfycbxefrHOKA-3fow6__bJk2YSoS7qGL3a57RMgZCjLmM0dkaXLH9r28WdHl887CP9ZiQ/exec", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data),
-    mode: "cors"
-  })
-  .then(res => res.json())
-  .then(res => alert("Submitted!"))
-  .catch(err => console.error("Error:", err));
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.text())
+    .then(txt => alert("Submitted! " + txt));
+
 
   });
 </script>
