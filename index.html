@@ -600,6 +600,7 @@
     formData.append("name", e.target.name.value);
     formData.append("email", e.target.email.value);
     formData.append("message", e.target.message.value);
+    formData.append("phone", e.target.phone.value);
   
     fetch("https://script.google.com/macros/s/AKfycbwIEnDz1mpsYRv-GUjSMESwbe1SiR3G7uR0cZrFTFXJb5qxuYiAsyOpDePxy-h8Fq0Y/exec", {
       method: "POST",
@@ -608,7 +609,7 @@
     .then(res => res.json())
     .then(res => {
       console.log("Response:", res);
-      alert("Submitted! " + JSON.stringify(res));
+      // alert("Submitted! " + JSON.stringify(res));
     })
     .catch(err => console.error("Error:", err));
 
