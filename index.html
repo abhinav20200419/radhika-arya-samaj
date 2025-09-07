@@ -231,6 +231,7 @@
   </div>
 </section>
 
+   
 
 <script>
   const testimonials = [
@@ -550,6 +551,26 @@
 
   <div id="form-status" class="mt-3 text-center"></div>
 </form>
+
+  
+<script>
+  document.getElementById("leadForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const data = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value
+    };
+    fetch("https://script.google.com/macros/s/AKfycbxUqjhZ6i9j-R5vw2lHJpyjO0lTD8rDTNl78lJCa4e2pCdbXFx_4dms4VpQfxohTu8/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+    },
+      body: JSON.stringify(data)
+    }).then(res => alert("Submitted!"));
+  });
+</script>
+
 
 
 <!-- Footer -->
