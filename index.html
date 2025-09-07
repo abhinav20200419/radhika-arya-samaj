@@ -554,6 +554,22 @@
 
   
 <script>
+  // document.getElementById("leadForm").addEventListener("submit", function(e) {
+  //   e.preventDefault();
+  //   const data = {
+  //     name: e.target.name.value,
+  //     email: e.target.email.value,
+  //     message: e.target.message.value
+  //   };
+  //   fetch("https://script.google.com/macros/s/AKfycbxUqjhZ6i9j-R5vw2lHJpyjO0lTD8rDTNl78lJCa4e2pCdbXFx_4dms4VpQfxohTu8/exec", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //   },
+  //     body: JSON.stringify(data)
+  //   }).then(res => alert("Submitted!"));
+  // });
+
   document.getElementById("leadForm").addEventListener("submit", function(e) {
     e.preventDefault();
     const data = {
@@ -561,13 +577,18 @@
       email: e.target.email.value,
       message: e.target.message.value
     };
-    fetch("https://script.google.com/macros/s/AKfycbxUqjhZ6i9j-R5vw2lHJpyjO0lTD8rDTNl78lJCa4e2pCdbXFx_4dms4VpQfxohTu8/exec", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
+    fetch("https://script.google.com/macros/s/AKfycbwZuGMNeVm4xa8I0ldQi9V0fPS5ayiNnIAfsNFCnQ/dev", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
     },
-      body: JSON.stringify(data)
-    }).then(res => alert("Submitted!"));
+    body: JSON.stringify(data),
+    mode: "cors"
+  })
+  .then(res => res.json())
+  .then(res => alert("Submitted!"))
+  .catch(err => console.error("Error:", err));
+
   });
 </script>
 
